@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+  
 
   // Sidebar derecho toggle
   const toggleRightBtn = document.getElementById('toggle-right-sidebar');
