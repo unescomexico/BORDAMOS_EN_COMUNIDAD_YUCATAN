@@ -77,9 +77,8 @@ body {
   color: #6A2687;
   /* Morado fuerte */
   font-size: 1.2em;
+  font-weight: 200;
   margin-bottom: 10px;
-  border-bottom: 2px solid #463739  ;
-  /* Amarillo fuerte */
   padding-bottom: 5px;
 }
 
@@ -492,4 +491,35 @@ tfoot {
   #toggle-right-sidebar {
     display: block;
   }
+}
+
+/* Estilo personalizado solo para la clase .lista-decorada */
+.lista-decorada {
+  margin: 1em 0 1em 2em;
+  padding-left: 0;
+  list-style: none;
+  /* 👈 Elimina la viñeta nativa */
+  font-family: 'Myriad Pro Light', sans-serif;
+  font-size: 1em;
+  color: #463739;
+  /* gris fuerte */
+}
+
+.lista-decorada li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+  text-align: justify;
+  /* 👈 Justifica el texto */
+}
+
+/* Puntos decorativos */
+.lista-decorada li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #6A2687;
+  /* morado fuerte */
+  font-size: 1.2em;
+  line-height: 1;
 }
