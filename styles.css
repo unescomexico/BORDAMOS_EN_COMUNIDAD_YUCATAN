@@ -68,13 +68,13 @@ body {
   position: sticky;
   top: 0;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-  border-right: 2px solid #9068A7;
+  border-right: 2px solid #463739;
   flex-shrink: 0;
   /* Evita que se reduzca en pantallas angostas */
 }
 
 .toc h2 {
-  color: #6A2687;
+  color: #463739  ;
   /* Morado fuerte */
   font-size: 1.2em;
   font-weight: 200;
@@ -94,7 +94,7 @@ body {
 
 .toc a {
   text-decoration: none;
-  color: #0071BB;
+  color: #463739;
   /* Azul fuerte */
   display: block;
   padding: 6px 12px;
@@ -110,7 +110,7 @@ body {
 }
 
 .toc a.active {
-  background-color: #9068A7;
+  background-color: #EF343F  ;
   /* Morado claro */
   color: #fff;
   font-weight: bold;
@@ -121,8 +121,8 @@ body {
   height: 0;
   overflow: hidden;
   transition: height 0.3s ease;
-  background: linear-gradient(90deg, #faf2ff 0%, #d2afe6 100%);
-  border-left: 3px solid #0071BB  ;
+  background: linear-gradient(90deg, #7A6D6F 0%, #463739  100%);
+  border-left: 3px solid #463739  ;
   /* Rojo fuerte */
   padding-left: 10px;
   margin-top: 5px;
@@ -135,13 +135,13 @@ body {
 }
 
 .toc ul ul a {
-  color: #49B044;
+  color: white;
   /* Verde fuerte */
   font-size: 0.95em;
 }
 
 .toc ul ul a:hover {
-  background: #8DC77E;
+  background: #F48371;
   /* Verde claro */
   color: white;
 }
