@@ -1,4 +1,5 @@
 /* Reset básico YKJGJKH */
+
 * {
   margin: 0;
   padding: 0;
@@ -16,9 +17,8 @@ body {
   padding: 20px;
 }
 
-/* Header fijo y estilizado */
+/* HEADER */
 .header {
-  display: none !important;
   position: fixed;
   top: 0;
   left: 0;
@@ -32,6 +32,7 @@ body {
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
+  display: none !important;
 }
 
 .header-text {
@@ -44,38 +45,57 @@ body {
   height: auto;
 }
 
-/* Wrapper centrado y más ancho */
+/* WRAPPER */
 .wrapper {
   display: flex;
   justify-content: center;
-  gap: 0;
   max-width: 1600px;
-  /* Aumenta el ancho máximo */
   margin: 0 auto;
   padding: 0 20px;
+  gap: 0;
 }
 
-/* Menú lateral más ancho y estable */
+/* BOTÓN TOC SIEMPRE VISIBLE */
+#toggle-toc {
+  display: block;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 10000;
+  background-color: #6A2687;
+  color: white;
+  padding: 10px 15px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* MENU LATERAL (SIEMPRE REPLEGADO POR DEFECTO) */
 .toc {
-  width: 300px;
-  /* Aumentado */
-  min-width: 300px;
-  background-color: #ffffff;
-  color: #463739;
-  padding: 20px;
-  height: 100vh;
-  overflow-y: auto;
-  position: sticky;
+  position: fixed;
   top: 0;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-  border-right: 2px solid #463739;
-  flex-shrink: 0;
-  /* Evita que se reduzca en pantallas angostas */
+  left: 0;
+  width: 80%;
+  max-width: 280px;
+  height: 100vh;
+  background-color: #ffffff;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 9999;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  overflow-y: auto;
 }
 
+.toc.expanded {
+  transform: translateX(0);
+}
+
+/* TOC CONTENIDO */
 .toc h2 {
-  color: #463739  ;
-  /* Morado fuerte */
+  color: #463739;
   font-size: 1.2em;
   font-weight: 200;
   margin-bottom: 10px;
@@ -95,7 +115,6 @@ body {
 .toc a {
   text-decoration: none;
   color: #463739;
-  /* Azul fuerte */
   display: block;
   padding: 6px 12px;
   border-radius: 4px;
@@ -106,29 +125,26 @@ body {
 .toc a:hover {
   background: linear-gradient(90deg, #FFCD70 0%, #FDB514 100%);
   color: #463739;
-  /* Texto gris fuerte al hacer hover */
 }
 
 .toc a.active {
-  background-color: #EF343F  ;
-  /* Morado claro */
+  background-color: #EF343F;
   color: #fff;
   font-weight: bold;
 }
 
-/* Submenús animados */
+/* SUBMENÚS */
 .toc ul ul {
   height: 0;
   overflow: hidden;
   transition: height 0.3s ease;
-  background: linear-gradient(90deg, #7A6D6F 0%, #463739  100%);
-  border-left: 3px solid #463739  ;
-  /* Rojo fuerte */
+  background: linear-gradient(90deg, #7A6D6F 0%, #463739 100%);
+  border-left: 3px solid #463739;
   padding-left: 10px;
   margin-top: 5px;
 }
 
-.toc li:hover>ul {
+.toc li:hover > ul {
   height: auto;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -136,40 +152,31 @@ body {
 
 .toc ul ul a {
   color: white;
-  /* Verde fuerte */
   font-size: 0.95em;
 }
 
 .toc ul ul a:hover {
   background: #F48371;
-  /* Verde claro */
   color: white;
 }
 
-/* Contenido Principal: eliminar margen superior si existe (no lo tienes), 
-   pero puede quedar así para quitar margen izquierdo extra */
+/* CONTENIDO */
 .content {
   flex: 1;
   max-width: 800px;
-  /* Ajustable según tu preferencia */
   padding: 20px;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
-/* Contenedor del artículo */
+/* CONTAINER */
 .container {
   background-color: #fff;
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Títulos */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* TITULOS */
+h1, h2, h3, h4, h5, h6 {
   font-size: 0.95em;
   color: #732353;
   font-family: 'Myriad Pro Light', sans-serif;
@@ -177,7 +184,6 @@ h6 {
   text-align: left;
   cursor: pointer;
   scroll-margin-top: 70px;
-  /* <-- Importante para evitar que el header tape el título */
 }
 
 h1 {
@@ -204,26 +210,21 @@ h4 {
   padding-left: 20px;
   font-size: 1.2em;
   color: #9068A7;
-  font-family: 'Myriad Pro Bold', sans-serif;
 }
 
 h5 {
   padding-left: 30px;
   font-size: 1.05em;
   color: #b0003a;
-  font-family: 'Myriad Pro Semibold', sans-serif;
-  margin-bottom: 15px;
 }
 
 h6 {
   padding-left: 40px;
-  font-size: 1.00em;
+  font-size: 1em;
   color: #0071BB;
-  font-family: 'Myriad Pro Semibold', sans-serif;
-  margin-bottom: 15px;
 }
 
-/* Párrafos */
+/* TEXTO */
 p {
   margin-bottom: 20px;
   text-align: justify;
@@ -232,28 +233,13 @@ p {
   color: #333;
 }
 
-/* Listas */
-ul {
-  margin-left: 20px;
-  margin-bottom: 20px;
-}
-
-/* Imágenes */
-img {
-  display: block;
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-  margin: 0 auto 20px;
-}
-
-/* Líneas horizontales */
+/* HR */
 hr {
   border: 1px solid #463739;
   margin: 20px 0;
 }
 
-/* Citas */
+/* BLOQUES */
 blockquote {
   border-left: 4px solid #007BFF;
   padding-left: 15px;
@@ -264,59 +250,14 @@ blockquote {
   font-size: 0.95em;
 }
 
-/* Secciones colapsables */
-.collapsible .section-content {
-  overflow: hidden;
-  transition: max-height 0.5s ease, padding 0.3s ease;
-  max-height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.collapsible-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease;
-}
-
-.collapsible-content.expanded {
-  max-height: 1000px;
-}
-
-/* Contenedor de listas dentro del artículo */
-.list-container {
-  background-color: #f0f0f0;
-  padding: 15px;
-  border-radius: 5px;
-  margin: 20px 30px;
-}
-
-.list-container ol {
-  margin-left: 20px;
-  list-style-position: inside;
-}
-
-.list-container ol ol {
-  margin-left: 40px;
-  list-style-type: lower-alpha;
-  margin: 10px 0;
-}
-
-.list-container li {
-  margin-bottom: 10px;
-  font-family: 'Myriad Pro Light', sans-serif;
-  color: #732353;
-}
-
-/* Tablas */
+/* TABLAS */
 table {
   margin: 20px auto;
   border-collapse: collapse;
   width: 90%;
 }
 
-th,
-td {
+th, td {
   border: 1px solid #ddd;
   padding: 10px;
   text-align: center;
@@ -331,37 +272,42 @@ tfoot {
   font-weight: bold;
 }
 
-/* Submenús en el índice */
-.toc ul ul {
-  display: none;
-}
-
-.toc li:hover>ul {
+/* IMAGENES */
+img {
   display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  margin: 0 auto 20px;
 }
 
-/* Sidebar Izquierdo en escritorio: cubrir toda la pantalla verticalmente */
-/* Asegura que el índice ocupe toda la altura de la ventana en escritorio */
-@media (min-width: 769px) {
-  .toc {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    height: 100vh;
-    /* Esto garantiza que llegue hasta abajo */
-    width: 250px;
-    overflow-y: auto;
-    color: #fff;
-    padding: 20px;
-  }
+/* LISTA DECORADA */
+.lista-decorada {
+  margin: 1em 0 1em 2em;
+  padding-left: 0;
+  list-style: none;
+  font-family: 'Myriad Pro Light', sans-serif;
+  font-size: 1em;
+  color: #463739;
 }
 
-#toggle-toc {
-  display: none;
+.lista-decorada li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+  text-align: justify;
 }
 
-/* Sidebar Derecho */
+.lista-decorada li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #6A2687;
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+/* SIDEBAR DERECHO */
 .right-sidebar {
   background-color: #fff;
   color: #463739;
@@ -380,29 +326,18 @@ tfoot {
   margin-bottom: 10px;
   text-align: left;
   font-size: 1.2em;
-  font-family: 'Myriad Pro', sans-serif;
-}
-
-.right-sidebar ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.right-sidebar li {
-  margin-bottom: 10px;
 }
 
 .right-sidebar a {
   text-decoration: none;
   color: #463739;
-  font-family: 'Myriad Pro', sans-serif;
 }
 
 .right-sidebar a:hover {
   text-decoration: underline;
 }
 
-/* Botón para togglear sidebar derecho (móviles) */
+/* BOTÓN TOGGLE RIGHT */
 #toggle-right-sidebar {
   display: none;
   position: fixed;
@@ -416,6 +351,7 @@ tfoot {
   border-radius: 3px;
   cursor: pointer;
 }
+
 
 /* Ajustes para móviles */
 @media (max-width: 768px) {
